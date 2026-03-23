@@ -1,0 +1,173 @@
+/* ================================
+   HEADER - ASOSIY STIL
+   ================================ */
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	transition: all 0.3s ease;
+}
+
+/* Logo Rasmi */
+.header img {
+	width: 150px;
+	height: auto;
+	object-fit: contain;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.header img:hover {
+	transform: scale(1.05);
+}
+
+/* ================================
+   NAVIGATION MENU
+   ================================ */
+.navbar {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.navbar .link {
+	position: relative;
+	font-size: 1.1rem;
+	font-weight: 300;
+	color: #333;
+	cursor: pointer;
+	padding: 0.5rem 0;
+	transition: color 0.3s ease;
+}
+
+/* Hover effekti - Rang o'zgarishi */
+.navbar .link:hover {
+	color: #e94560;
+}
+
+/* Hover effekti - Pastki chiziq animatsiyasi */
+.navbar .link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: linear-gradient(90deg, #e94560, #ff6b6b);
+	border-radius: 2px;
+	transition: width 0.3s ease;
+}
+
+.navbar .link:hover::after {
+	width: 100%;
+}
+
+/* Active holat (agar JS da qo'shsangiz) */
+.navbar .link.active {
+	color: #e94560;
+	font-weight: 600;
+}
+
+.navbar .link.active::after {
+	width: 100%;
+}
+
+/* ================================
+   RESPONSIVE - MOBIL QURILMALAR
+   ================================ */
+@media (max-width: 768px) {
+	.header {
+		padding: 0.8rem 1.5rem;
+	}
+
+	.header img {
+		width: 120px;
+	}
+
+	.navbar {
+		gap: 1.2rem;
+	}
+
+	.navbar .link {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.header {
+		padding: 0.6rem 1rem;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+	}
+
+	.header img {
+		width: 100px;
+	}
+
+	.navbar {
+		width: 100%;
+		justify-content: center;
+		gap: 1rem;
+		padding-top: 0.5rem;
+		border-top: 1px solid rgba(0, 0, 0, 0.05);
+	}
+
+	.navbar .link {
+		font-size: 0.95rem;
+		padding: 0.3rem 0;
+	}
+}
+
+/* ================================
+   QO'SHIMCHA: SCROLL EFFEKTI
+   ================================ */
+/* JS orqali 'scrolled' class qo'shsangiz ishlaydi */
+.header.scrolled {
+	padding: 0.5rem 2rem;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	background: rgba(255, 255, 255, 0.98);
+}
+
+/* ================================
+   DARK MODE (Avtomatik)
+   ================================ */
+@media (prefers-color-scheme: dark) {
+	.header {
+		background: rgba(26, 26, 46, 0.95);
+		border-bottom-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.navbar .link {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.navbar .link:hover {
+		color: #ff6b6b;
+	}
+}
+
+/* ================================
+   ACCESSIBILITY (Kirish qulayligi)
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
+.navbar .link:focus {
+	outline: 2px solid #e94560;
+	outline-offset: 4px;
+	border-radius: 4px;
+}

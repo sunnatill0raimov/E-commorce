@@ -1,0 +1,298 @@
+/* ================================
+   HERO SECTION - GLOBAL STYLES
+   ================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Orqa fon uchun dekorativ elementlar */
+.image::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(233, 69, 96, 0.15) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+  animation: pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.image::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, transparent 70%);
+  bottom: -100px;
+  left: -50px;
+  animation: pulse 5s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* ================================
+   LAYOUT - FLEXBOX
+   ================================ */
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 2rem 4rem;
+}
+
+/* ================================
+   RASM STILI (SNEAKER IMAGE)
+   ================================ */
+.hero img {
+  flex: 1;
+  max-width: 550px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.4));
+  animation: float 3.5s ease-in-out infinite;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+}
+
+.hero img:hover {
+  transform: scale(1.03) rotate(-2deg);
+}
+
+/* Suzuvchi animatsiya */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(1deg); }
+  66% { transform: translateY(-8px) rotate(-1deg); }
+}
+
+/* ================================
+   MATN QISMI (INFO)
+   ================================ */
+.info {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 2;
+  animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Sarlavha */
+.sneakers-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, #fff 0%, #e94560 50%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+  margin: 0;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* Tavsif */
+.descr {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ================================
+   TUGMA (BUY BUTTON)
+   ================================ */
+.buy-btn {
+  align-self: flex-start;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+}
+
+/* Tugma hover effekti */
+.buy-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.buy-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+}
+
+.buy-btn:hover::before {
+  left: 100%;
+}
+
+.buy-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+}
+
+/* ================================
+   QO'SHIMCHA ELEMENTLAR (Badges)
+   ================================ */
+.hero::before {
+  content: 'NEW';
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  padding: 0.5rem 1.2rem;
+  background: #e94560;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  animation: bounce 2s ease infinite;
+  z-index: 3;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ================================
+   RESPONSIVE DESIGN (MOBILE)
+   ================================ */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+    gap: 3rem;
+  }
+
+  .info {
+    align-items: center;
+    animation: slideInUp 0.8s ease-out;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .buy-btn {
+    align-self: center;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero::before {
+    content: 'NEW';
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .sneakers-title {
+    font-size: 1.8rem;
+  }
+
+  .descr {
+    font-size: 1rem;
+  }
+
+  .buy-btn {
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+  }
+
+  .hero img {
+    max-width: 350px;
+  }
+}
+
+/* ================================
+   DARK MODE OPTIMIZATION
+   ================================ */
+@media (prefers-color-scheme: dark) {
+  .hero {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+  }
+}
+
+/* ================================
+   ACCESSIBILITY
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.buy-btn:focus {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
