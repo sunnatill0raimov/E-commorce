@@ -11,12 +11,14 @@ function Header() {
 
 				<ul className='navbar'>
 					<Link to={'/'}>
-						<li className="link">Home</li>
+						<li className='link'>Home</li>
 					</Link>
 					<Link to={'/all'}>
 						<li className='link'>All</li>
 					</Link>
-					<li className='link'>Profile</li>
+					<Link to={'/profile'}>
+						<li className='link'>Profile</li>
+					</Link>
 				</ul>
 			</div>
 		</>

@@ -6,6 +6,7 @@ import Header from './header/Header'
 import Hero from './hero/Hero'
 import AllPage from './pages/AllPage'
 import NotFoundPage from './pages/NotFoundPage'
+import ProfilePage from './pages/ProfilePage'
 import SinglePage from './pages/SinglePage'
 
 function App() {
@@ -31,7 +32,11 @@ function App() {
 					))}
 				/>
 				<Route path='/all' element={<AllPage sneakers={sneakers} />} />
-				<Route path='/product/:id' element={<SinglePage sneakers={sneakers}/>}/>
+				<Route
+					path='/product/:id'
+					element={<SinglePage sneakers={sneakers} />}
+				/>
+				<Route path='/profile' element={<ProfilePage />} />
 				<Route path='/*' element={<NotFoundPage />} />
 			</Routes>
 			<Footer />

@@ -75,11 +75,11 @@ function SinglePage({ sneakers }) {
             {product.sizes.map((size, idx) => (
               <button 
                 key={idx} 
-                className={`size-btn ${size.stock === 0 ? 'disabled' : ''}`}
+                className={`size-btn ${size.stock === 0 ? '' : ''}`}
                 disabled={size.stock === 0}
               >
                 {size.cm} cm
-                {size.stock === 0 && <span className="out-stock">✕</span>}
+                {/* {size.stock === 0 && <span className="out-stock">✕</span>} */}
               </button>
             ))}
           </div>

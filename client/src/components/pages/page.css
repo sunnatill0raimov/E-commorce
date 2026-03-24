@@ -93,6 +93,7 @@
 	min-height: 2.8rem;
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
+	line-clamp: 2;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
@@ -151,10 +152,6 @@
 	display: none;
 }
 
-/* Narx + Discount birga bo'lsa */
-.card .price + .discount:not(:empty):not([value='0']):not([value='0.00']) {
-	/* eski narx uchun style */
-}
 
 .card .discount:not(:empty):not([value='0']):not([value='0.00']) ~ .price {
 	text-decoration: line-through;
@@ -500,428 +497,872 @@
    SINGLE PRODUCT - CONTAINER
    ================================ */
 .singleProduct {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 10px auto;
-  padding: 2.5rem 2rem;
-  background: #fff;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+	max-width: 1200px;
+	margin: 10px auto;
+	padding: 2.5rem 2rem;
+	background: #fff;
 }
 
 /* ================================
    RASM GALEREYASI
    ================================ */
 .product-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 .main-image {
-  border-radius: 16px;
-  overflow: hidden;
-  background: #f8f9fa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	border-radius: 16px;
+	overflow: hidden;
+	background: #f8f9fa;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .main-image img {
-  width: 100%;
-  max-height: 500px;
-  object-fit: contain;
-  padding: 1.5rem;
-  transition: transform 0.3s ease;
+	width: 100%;
+	max-height: 500px;
+	object-fit: contain;
+	padding: 1.5rem;
+	transition: transform 0.3s ease;
 }
 
 .main-image img:hover {
-  transform: scale(1.03);
+	transform: scale(1.03);
 }
 
 .thumbnails {
-  display: flex;
-  gap: 0.8rem;
-  overflow-x: auto;
-  padding: 0.3rem 0;
+	display: flex;
+	gap: 0.8rem;
+	overflow-x: auto;
+	padding: 0.3rem 0;
 }
 
 .thumb {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  border-radius: 10px;
-  background: #f0f0f0;
-  padding: 0.5rem;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
+	width: 80px;
+	height: 80px;
+	object-fit: contain;
+	border-radius: 10px;
+	background: #f0f0f0;
+	padding: 0.5rem;
+	cursor: pointer;
+	border: 2px solid transparent;
+	transition: all 0.2s ease;
+	flex-shrink: 0;
 }
 
 .thumb:hover {
-  border-color: #e94560;
-  background: #fff;
+	border-color: #e94560;
+	background: #fff;
 }
 
 /* ================================
    MA'LUMOTLAR QISMI
    ================================ */
 .product-details {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 
 /* Header */
 .product-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #eee;
 }
 
 .brand-badge {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background: #e94560;
-  color: #fff;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  width: fit-content;
+	display: inline-block;
+	padding: 0.3rem 0.8rem;
+	background: #e94560;
+	color: #fff;
+	border-radius: 6px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	width: fit-content;
 }
 
 .product-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1a1a2e;
-  margin: 0;
-  line-height: 1.3;
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #1a1a2e;
+	margin: 0;
+	line-height: 1.3;
 }
 
 .product-meta {
-  display: flex;
-  gap: 1rem;
-  color: #666;
-  font-size: 0.95rem;
+	display: flex;
+	gap: 1rem;
+	color: #666;
+	font-size: 0.95rem;
 }
 
 .meta-item {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
 }
 
 /* Narx */
 .product-price {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
 }
 
 .old-price {
-  font-size: 1.3rem;
-  color: #999;
-  text-decoration: line-through;
+	font-size: 1.3rem;
+	color: #999;
+	text-decoration: line-through;
 }
 
 .new-price {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #e94560;
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #e94560;
 }
 
 .current-price {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1a1a2e;
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #1a1a2e;
 }
 
 .discount-percent {
-  background: #ffe0e6;
-  color: #e94560;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
+	background: #ffe0e6;
+	color: #e94560;
+	padding: 0.3rem 0.8rem;
+	border-radius: 20px;
+	font-size: 0.9rem;
+	font-weight: 600;
 }
 
 /* Tavsif */
 .product-description {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.7;
-  margin: 0;
-  padding: 0.5rem 0;
+	font-size: 1rem;
+	color: #555;
+	line-height: 1.7;
+	margin: 0;
+	padding: 0.5rem 0;
 }
 
 /* Section (Sizes, Colors) */
 .product-section h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1a1a2e;
-  margin: 0 0 0.8rem 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #1a1a2e;
+	margin: 0 0 0.8rem 0;
 }
 
 .sizes-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
 }
 
 .size-btn {
-  min-width: 70px;
-  height: 45px;
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #333;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	min-width: 70px;
+	height: 45px;
+	border: 1px solid #ddd;
+	background: #fff;
+	border-radius: 8px;
+	font-size: 0.95rem;
+	font-weight: 500;
+	color: #333;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .size-btn:hover:not(.disabled) {
-  border-color: #e94560;
-  color: #e94560;
-  background: rgba(233, 69, 96, 0.05);
+	border-color: #e94560;
+	color: #e94560;
+	background: rgba(233, 69, 96, 0.05);
 }
 
 .size-btn.disabled {
-  background: #f5f5f5;
-  color: #999;
-  border-color: #e0e0e0;
-  cursor: not-allowed;
+	background: #f5f5f5;
+	color: #999;
+	border-color: #e0e0e0;
+	cursor: not-allowed;
 }
 
 .size-btn .out-stock {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background: #e94560;
-  color: #fff;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  font-size: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	background: #e94560;
+	color: #fff;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	font-size: 0.7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 /* Ranglar */
 .colors-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
 }
 
 .color-chip {
-  padding: 0.4rem 1rem;
-  background: #f0f0f0;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  color: #333;
+	padding: 0.4rem 1rem;
+	background: #f0f0f0;
+	border-radius: 20px;
+	font-size: 0.9rem;
+	color: #333;
 }
 
 /* Qo'shimcha ma'lumot */
 .product-extra {
-  padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  color: #555;
+	padding: 1rem;
+	background: #f8f9fa;
+	border-radius: 12px;
+	font-size: 0.95rem;
+	color: #555;
 }
 
 .product-extra p {
-  margin: 0.4rem 0;
+	margin: 0.4rem 0;
 }
 
 /* Xarid tugmasi */
 .buy-btn {
-  width: 100%;
-  padding: 1rem;
-  background: linear-gradient(135deg, #e94560, #ff6b6b);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-top: 0.5rem;
+	width: 100%;
+	padding: 1rem;
+	background: linear-gradient(135deg, #e94560, #ff6b6b);
+	color: #fff;
+	border: none;
+	border-radius: 12px;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+	margin-top: 0.5rem;
 }
 
 .buy-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(233, 69, 96, 0.3);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(233, 69, 96, 0.3);
 }
 
 .buy-btn:active {
-  transform: translateY(0);
+	transform: translateY(0);
 }
 
 /* ================================
    NOT FOUND
    ================================ */
 .not-found {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
-  text-align: center;
-  padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 50vh;
+	text-align: center;
+	padding: 2rem;
 }
 
 .not-found h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+	font-size: 1.5rem;
+	color: #333;
+	margin-bottom: 1.5rem;
 }
 
 .back-link {
-  padding: 0.8rem 2rem;
-  background: #e94560;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: opacity 0.2s ease;
+	padding: 0.8rem 2rem;
+	background: #e94560;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 8px;
+	font-weight: 500;
+	transition: opacity 0.2s ease;
 }
 
 .back-link:hover {
-  opacity: 0.9;
+	opacity: 0.9;
 }
 
 /* ================================
    RESPONSIVE
    ================================ */
 @media (max-width: 900px) {
-  .singleProduct {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 1.5rem;
-  }
+	.singleProduct {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		padding: 1.5rem;
+	}
 
-  .product-gallery {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+	.product-gallery {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 
-  .main-image {
-    width: 100%;
-  }
+	.main-image {
+		width: 100%;
+	}
 
-  .main-image img {
-    max-height: 350px;
-  }
+	.main-image img {
+		max-height: 350px;
+	}
 
-  .thumb {
-    width: 70px;
-    height: 70px;
-  }
+	.thumb {
+		width: 70px;
+		height: 70px;
+	}
 
-  .product-title {
-    font-size: 1.5rem;
-  }
+	.product-title {
+		font-size: 1.5rem;
+	}
 
-  .new-price,
-  .current-price {
-    font-size: 1.5rem;
-  }
+	.new-price,
+	.current-price {
+		font-size: 1.5rem;
+	}
 }
 
 @media (max-width: 480px) {
-  .singleProduct {
-    padding: 1rem;
-  }
+	.singleProduct {
+		padding: 1rem;
+	}
 
-  .main-image img {
-    max-height: 280px;
-    padding: 1rem;
-  }
+	.main-image img {
+		max-height: 280px;
+		padding: 1rem;
+	}
 
-  .thumb {
-    width: 60px;
-    height: 60px;
-  }
+	.thumb {
+		width: 60px;
+		height: 60px;
+	}
 
-  .product-title {
-    font-size: 1.3rem;
-  }
+	.product-title {
+		font-size: 1.3rem;
+	}
 
-  .product-meta {
-    font-size: 0.9rem;
-    flex-wrap: wrap;
-  }
+	.product-meta {
+		font-size: 0.9rem;
+		flex-wrap: wrap;
+	}
 
-  .size-btn {
-    min-width: 60px;
-    height: 40px;
-    font-size: 0.9rem;
-  }
+	.size-btn {
+		min-width: 60px;
+		height: 40px;
+		font-size: 0.9rem;
+	}
 
-  .buy-btn {
-    padding: 0.9rem;
-    font-size: 1rem;
-  }
+	.buy-btn {
+		padding: 0.9rem;
+		font-size: 1rem;
+	}
 }
 
 /* ================================
    DARK MODE
    ================================ */
 @media (prefers-color-scheme: dark) {
-  .singleProduct {
-    background: #1a1a2e;
-  }
+	.singleProduct {
+		background: #1a1a2e;
+	}
 
-  .product-title,
-  .product-section h3,
-  .current-price,
-  .product-extra {
-    color: rgba(255, 255, 255, 0.95);
-  }
+	.product-title,
+	.product-section h3,
+	.current-price,
+	.product-extra {
+		color: rgba(255, 255, 255, 0.95);
+	}
 
-  .product-meta,
-  .product-description,
-  .product-extra p,
-  .color-chip {
-    color: rgba(255, 255, 255, 0.8);
-  }
+	.product-meta,
+	.product-description,
+	.product-extra p,
+	.color-chip {
+		color: rgba(255, 255, 255, 0.8);
+	}
 
-  .main-image,
-  .thumb,
-  .size-btn,
-  .product-extra {
-    background: #232342;
-  }
+	.main-image,
+	.thumb,
+	.size-btn,
+	.product-extra {
+		background: #232342;
+	}
 
-  .size-btn {
-    border-color: #3a3a5a;
-    color: rgba(255, 255, 255, 0.9);
-  }
+	.size-btn {
+		border-color: #3a3a5a;
+		color: rgba(255, 255, 255, 0.9);
+	}
 
-  .size-btn:hover:not(.disabled) {
-    border-color: #e94560;
-    background: rgba(233, 69, 96, 0.1);
-  }
+	.size-btn:hover:not(.disabled) {
+		border-color: #e94560;
+		background: rgba(233, 69, 96, 0.1);
+	}
 
-  .color-chip {
-    background: rgba(255, 255, 255, 0.1);
-  }
+	.color-chip {
+		background: rgba(255, 255, 255, 0.1);
+	}
 
-  .not-found h2 {
-    color: rgba(255, 255, 255, 0.9);
-  }
+	.not-found h2 {
+		color: rgba(255, 255, 255, 0.9);
+	}
+}
+
+/* ================================
+   ASOSIY SOZLAMALAR
+   ================================ */
+.profile {
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 2rem 10rem;
+	background: #fff;
+	min-height: 100vh;
+}
+
+.profile h2 {
+	text-align: center;
+	color: #1a1a2e;
+	margin-bottom: 2rem;
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+/* ================================
+   FORM CONTAINER
+   ================================ */
+.sneakersForm {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+/* ================================
+   FIELDSET (BO'LIMLAR)
+   ================================ */
+.form-section {
+	border: 1px solid #eee;
+	border-radius: 12px;
+	padding: 1.2rem;
+	background: #fafafa;
+}
+
+.form-section legend {
+	font-weight: 600;
+	color: #e94560;
+	padding: 0 0.5rem;
+	font-size: 1rem;
+}
+
+/* ================================
+   FORM ROW (QATORLAR)
+   ================================ */
+.form-row {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	margin-bottom: 1rem;
+}
+
+.form-row:last-child {
+	margin-bottom: 0;
+}
+
+label {
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: #333;
+}
+
+/* ================================
+   INPUT / SELECT / TEXTAREA
+   ================================ */
+input,
+select,
+textarea {
+	padding: 0.7rem 1rem;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	font-size: 0.95rem;
+	transition: border-color 0.2s ease;
+	background: #fff;
+	width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+	outline: none;
+	border-color: #e94560;
+	box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+textarea {
+	font-family: monospace;
+	font-size: 0.9rem;
+	resize: vertical;
+}
+
+/* Placeholder rangi */
+input::placeholder,
+textarea::placeholder {
+	color: #aaa;
+}
+
+/* ================================
+   CHECKBOX
+   ================================ */
+.checkbox-row {
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.checkbox-row input[type='checkbox'] {
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+	accent-color: #e94560;
+}
+
+.checkbox-row label {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	cursor: pointer;
+	font-weight: 400;
+}
+
+/* ================================
+   TUGMALAR
+   ================================ */
+.form-actions {
+	display: flex;
+	gap: 1rem;
+	padding-top: 0.5rem;
+}
+
+.form-actions button {
+	flex: 1;
+	padding: 0.9rem;
+	border: none;
+	border-radius: 10px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+/* Saqlash tugmasi */
+.btn-submit {
+	background: linear-gradient(135deg, #e94560, #ff6b6b);
+	color: #fff;
+}
+
+.btn-submit:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(233, 69, 96, 0.3);
+}
+
+/* Tozalash tugmasi */
+.form-actions button:last-child {
+	background: #f0f0f0;
+	color: #333;
+}
+
+.form-actions button:last-child:hover {
+	background: #e0e0e0;
+}
+
+/* ================================
+   RESPONSIVE (MOBIL)
+   ================================ */
+@media (max-width: 600px) {
+	.profile {
+		padding: 1rem 0.8rem;
+	}
+
+	.profile h2 {
+		font-size: 1.3rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.form-section {
+		padding: 1rem;
+	}
+
+	.form-section legend {
+		font-size: 0.95rem;
+	}
+
+	input,
+	select,
+	textarea {
+		padding: 0.6rem 0.9rem;
+		font-size: 0.9rem;
+	}
+
+	.form-actions {
+		flex-direction: column;
+	}
+
+	.form-actions button {
+		padding: 0.8rem;
+		font-size: 0.95rem;
+	}
+}
+
+/* ================================
+   DARK MODE (Avtomatik)
+   ================================ */
+@media (prefers-color-scheme: dark) {
+	.profile {
+		background: #1a1a2e;
+	}
+
+	.profile h2 {
+		color: rgba(255, 255, 255, 0.95);
+	}
+
+	.form-section {
+		background: #232342;
+		border-color: #3a3a5a;
+	}
+
+	.form-section legend {
+		color: #ff6b6b;
+	}
+
+	label {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	input,
+	select,
+	textarea {
+		background: #2a2a4a;
+		border-color: #3a3a5a;
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: rgba(255, 255, 255, 0.4);
+	}
+
+	.form-actions button:last-child {
+		background: #2a2a4a;
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.form-actions button:last-child:hover {
+		background: #3a3a5a;
+	}
+}
+
+/* ================================
+   ACCESSIBILITY
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition: none !important;
+		transform: none !important;
+	}
+}
+
+/* Focus holati klaviatura uchun */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+	outline: 2px solid #e94560;
+	outline-offset: 2px;
+}
+/* ================================
+   MESSAGES & ALERTS
+   ================================ */
+.message-alert {
+	padding: 1rem;
+	border-radius: 12px;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	font-weight: 500;
+	animation: slideDown 0.3s ease;
+}
+
+.message-alert.success {
+	background: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+}
+
+.message-alert.error {
+	background: #f8d7da;
+	color: #721c24;
+	border: 1px solid #f5c6cb;
+}
+
+@keyframes slideDown {
+	from { transform: translateY(-10px); opacity: 0; }
+	to { transform: translateY(0); opacity: 1; }
+}
+
+/* ================================
+   FORM LAYOUT HELPERS
+   ================================ */
+.form-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+.form-grid.three-cols {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.form-columns {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+	.form-grid, .form-grid.three-cols, .form-columns {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ================================
+   INPUT WITH SUFFIX
+   ================================ */
+.input-with-label {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.input-suffix {
+	position: absolute;
+	right: 1rem;
+	color: #888;
+	font-size: 0.85rem;
+	pointer-events: none;
+}
+
+/* ================================
+   DYNAMIC LISTS (Sizes, Colors, Images)
+   ================================ */
+.dynamic-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.dynamic-row {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.dynamic-row.full-width {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 0.5rem;
+}
+
+.dynamic-row input {
+	flex: 1;
+}
+
+.btn-add {
+	background: #f0f0f0;
+	color: #e94560;
+	border: 2px dashed #e94560;
+	padding: 0.6rem;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.btn-add:hover {
+	background: rgba(233, 69, 96, 0.05);
+	transform: translateY(-2px);
+}
+
+.btn-remove {
+	background: #fff0f0;
+	color: #ff4757;
+	border: 1px solid #ffdada;
+	width: 38px;
+	height: 38px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	flex-shrink: 0;
+}
+
+.btn-remove:hover {
+	background: #ff4757;
+	color: #fff;
+}
+
+.image-preview-mini {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 6px;
+	border: 1px solid #ddd;
+	grid-column: 1 / -1;
+}
+
+/* ================================
+   DARK MODE UPDATES
+   ================================ */
+@media (prefers-color-scheme: dark) {
+	.btn-add {
+		background: #2a2a4a;
+		border-style: solid;
+	}
+	
+	.btn-remove {
+		background: #32233a;
+		border-color: #4a2a3a;
+	}
+	
+	.input-suffix {
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.message-alert.success {
+		background: #1e3a24;
+		color: #a3cfbb;
+		border-color: #1a3320;
+	}
+
+	.message-alert.error {
+		background: #3a1e1e;
+		color: #f1aeb5;
+		border-color: #331a1a;
+	}
 }
